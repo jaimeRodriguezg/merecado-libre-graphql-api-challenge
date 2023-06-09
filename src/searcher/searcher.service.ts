@@ -6,9 +6,9 @@ import {
   SearcherResponsePagination,
 } from './entities/searcher.entity';
 import { HandleErrorService } from '../common/handle-errors.service';
-import { GeneralItem } from 'src/common/entities/common.entity';
-import { PaginationArgs } from 'src/common/dto/pagination.args';
-import { PageInfo } from 'src/common/entities/pagination.entity';
+import { GeneralItem } from '../common/entities/common.entity';
+import { PaginationArgs } from '../common/dto/pagination.args';
+import { PageInfo } from '../common/entities/pagination.entity';
 
 @Injectable()
 export class SearcherService {
@@ -55,6 +55,8 @@ export class SearcherService {
           `${process.env.MERCADO_LIBRE_API}/sites/MLA/search?q=${encodedSearch}&offset=${offset}&limit=${limit}`,
         ),
       );
+
+      console.log(response);
 
       return this.parseResponsePagination(
         response.data,

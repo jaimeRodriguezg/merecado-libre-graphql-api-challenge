@@ -3,7 +3,7 @@ import { HandleErrorService } from '../common/handle-errors.service';
 import { HttpService } from '@nestjs/axios';
 import { Item, ItemResponse } from './entities/item.entity';
 import { firstValueFrom } from 'rxjs';
-import { Price } from 'src/common/entities/common.entity';
+import { Price } from '../common/entities/common.entity';
 
 @Injectable()
 export class ItemsService {

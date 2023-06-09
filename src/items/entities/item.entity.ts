@@ -1,5 +1,5 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { Author, GeneralItem } from 'src/common/entities/common.entity';
+import { Author, GeneralItem } from '../../common/entities/common.entity';
 
 @ObjectType()
 export class Picture {

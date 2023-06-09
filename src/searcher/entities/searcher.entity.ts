@@ -1,6 +1,6 @@
 import { ObjectType, Field } from '@nestjs/graphql';
-import { Author, GeneralItem } from 'src/common/entities/common.entity';
-import { PageInfo } from 'src/common/entities/pagination.entity';
+import { Author, GeneralItem } from '../../common/entities/common.entity';
+import { PageInfo } from '../../common/entities/pagination.entity';
 
 @ObjectType()
 export class SearcherResponse {

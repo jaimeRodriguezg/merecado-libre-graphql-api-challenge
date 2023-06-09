@@ -1,9 +1,11 @@
 import { join } from 'path';
 import { Module } from '@nestjs/common';
 import { ApolloDriverConfig } from '@nestjs/apollo';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ApolloDriver } from '@nestjs/apollo/dist/drivers';
 import { GraphQLModule } from '@nestjs/graphql';
+import { WinstonModule } from 'nest-winston';
+import { logger } from '../logtail.config';
 import {
   ApolloServerPluginLandingPageLocalDefault,
   ApolloServerPluginLandingPageProductionDefault,
@@ -31,6 +33,13 @@ import { ItemsModule } from './items/items.module';
       buildSchemaOptions: {
         dateScalarMode: 'timestamp',
       },
+    }),
+
+    WinstonModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) =>
+        logger(configService.get('LOGTAIL_SOURCE_TOKEN')),
     }),
 
     //Axios config

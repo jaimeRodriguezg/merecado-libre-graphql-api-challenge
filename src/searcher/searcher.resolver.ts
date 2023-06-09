@@ -4,7 +4,7 @@ import {
   SearcherResponse,
   SearcherResponsePagination,
 } from './entities/searcher.entity';
-import { PaginationArgs } from 'src/common/dto/pagination.args';
+import { PaginationArgs } from '../common/dto/pagination.args';
 
 @Resolver(() => SearcherResponse)
 export class SearcherResolver {
