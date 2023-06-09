@@ -5,7 +5,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    image: meli-repository
+    image: meli
     container_name: MELIAPP
     restart: always
     ports:
