@@ -1,0 +1,75 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Author {
+  name: String!
+  lastname: String!
+}
+
+type Price {
+  currency: String!
+  amount: Float!
+  decimals: Float!
+}
+
+type GeneralItem {
+  id: String!
+  title: String!
+  price: Price!
+  thumbnail: String!
+  condition: String!
+  free_shipping: Boolean!
+}
+
+type PageInfo {
+  currentPage: Int!
+  perPage: Int!
+  totalPages: Int!
+  totalItems: Int!
+  hasPreviousPage: Boolean!
+  hasNextPage: Boolean!
+}
+
+type SearcherResponse {
+  author: Author!
+  categories: [String!]!
+  items: [GeneralItem!]!
+}
+
+type SearcherResponsePagination {
+  author: Author!
+  categories: [String!]!
+  items: [GeneralItem!]!
+  pageInfo: PageInfo!
+}
+
+type Picture {
+  id: String!
+  url: String!
+}
+
+type Item {
+  id: String!
+  title: String!
+  price: Price!
+  thumbnail: String!
+  condition: String!
+  free_shipping: Boolean!
+  sold_quantity: Int!
+  description: String!
+  pictures: [Picture!]!
+}
+
+type ItemResponse {
+  author: Author!
+  item: Item!
+}
+
+type Query {
+  searcher(search: String!, name: String!, lastName: String!): SearcherResponse!
+
+  """Search with pagination"""
+  searcherPagination(search: String!, name: String!, lastName: String!, offset: Int = 0, limit: Int = 10): SearcherResponsePagination!
+  items(id: String!, name: String!, lastName: String!): ItemResponse!
+}

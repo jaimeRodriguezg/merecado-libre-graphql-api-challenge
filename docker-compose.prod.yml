@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  meli-prod:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: meli-repository
+    container_name: MELIAPP
+    restart: always
+    ports:
+      - "80:4000"
+
+  
